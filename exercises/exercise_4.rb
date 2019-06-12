@@ -14,7 +14,10 @@ Store.create(name: 'Yaletown', annual_revenue:  430000,mens_apparel:true,womens_
 
 
 @mens_stores = Store.where(mens_apparel:true);
-# @women = Store.where(mens_apparel:true, annual_revenue: 1000000);
-puts @mens_stores
+@women = Store.where(womens_apparel:true);
+puts @mens_stores.count
+# pp Store.annual_revenue < 1000000
+
 
 @mens_stores.each {|n| p n.name, n.annual_revenue }
+@women.each {|n| p n.annual_revenue < 1000000, n.name }
